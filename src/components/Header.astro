@@ -1,0 +1,45 @@
+---
+// Importar las banderas y otros componentes
+import EngFlag from "@components/assets/en-lang.webp";
+import ArgFlag from "@components/assets/argentina.webp";
+import Image from "astro/components/Image.astro";
+---
+
+<header class="bg-transparent mx-24 py-8">
+    <nav class="text-stone-100 flex justify-end items-center">
+        <ul class="nav-list flex space-x-4 text-xl ">
+            <li class="relative">
+                <a href="/">Home</a>
+            </li>
+            <li class="relative">
+                <a href="/works">Works</a>
+            </li>
+            <li class="relative">
+                <a href="/about">About</a>
+            </li>
+            <li class="relative">
+                <a href="/contact">Contact</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<style>
+    .nav-list li {
+        position: relative;
+    }
+    /* Subrayado animado */
+    .nav-list li::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #3498db;
+        transition: width 0.3s ease;
+    }
+    .nav-list li:hover::before {
+        width: 100%;
+    }
+</style>

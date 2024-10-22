@@ -1,0 +1,37 @@
+---
+import Layout from "../layouts/Layout.astro"
+interface Project {
+	title: string;
+	description: string;
+	technologies: string[];
+	link: string;
+	image: string;
+}
+const projects: Record<string,{frontmatter: Project}> = import.meta.glob("/src/projects/*.md", { eager: true });
+---
+
+<Layout title="Works | Santicue14">
+    <section class="text-white">
+        <h1>Some of my works</h1>
+        <ul>
+            {
+                Object.values(projects).map(({ frontmatter }) => (
+                    <li>
+                        <h2>{frontmatter.title}</h2>
+                        <p>{frontmatter.description}</p>
+                        <ul>
+                            {frontmatter.technologies.map((tech: unknown) => (
+                                <li>{tech}</li>
+                            ))}
+                        </ul>
+                        <a href={frontmatter.link}>View Project</a>
+                        <img
+                            src={frontmatter.image}
+                            alt={`Screenshot of ${frontmatter.title}`}
+                        />
+                    </li>
+                ))
+            }
+        </ul>
+    </section>
+</Layout>

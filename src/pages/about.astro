@@ -1,52 +1,46 @@
 ---
+// Importaciones
 import Image from "astro/components/Image.astro";
 import Layout from "../layouts/Layout.astro";
+import {techs} from '@components/logos'
 
-// LOGOS
-import HtmlLogo from "@components/assets/html-5.svg";
-import ReactLogo from "@components/assets/react.svg";
-import JsLogo from "@components/assets/javascript.svg";
-import NodeLogo from "@components/assets/node.svg";
-import MySQLLogo from "@components/assets/mysql.svg";
-import GitHubLogo from "@components/assets/github.svg";
-
-// Definir todas las tecnologías en un array de objetos
-const techs = [
-  { name: "HTML & CSS", img: HtmlLogo || null },
-  { name: "React.js", img: ReactLogo || null },
-  { name: "JavaScript", img: JsLogo || null },
-  { name: "Node.js", img: NodeLogo || null },
-  { name: "MySQL", img: MySQLLogo || null },
-  { name: "GitHub", img: GitHubLogo || null },
-];
 ---
 
 <Layout title="About me | Santicue14">
     <main class="grid grid-flow-row grid-cols-2 text-white mx-12 gap-6">
+        <!-- Profile Section -->
         <section>
             <h4>Profile</h4>
             <p>I'm a junior developer who loves front-end and back-end web development equally. I am experienced in using important technologies, and I particularly enjoy working with React.js, a tool I have utilized in many projects. Being passionate about software and having a solid background in computer science, I am constantly excited to expand my knowledge and take on new tasks in the industry. At the moment, I am seeking chances to utilize my skills and enhance my knowledge within the tech industry.</p>
         </section>
+
+        <!-- Studies Section -->
         <section>
             <h4>Studies</h4>
             <div class="university">
                 <h6>University</h6>
                 <p>I'm currently in my 2nd year at the National University of José C. Paz (Argentina), pursuing a Bachelor's Degree in Information Technology Management. In addition to my self-taught nature, this career provides me a solid reinforcement in software development and other technologies (IoT, Operating Systems, History of tech...). The practical projects at the university complement my independent learning, giving me the tools and knowledge that I apply directly to my growth as a developer.</p>
             </div>
-            <div class="languages">
-                <h6>Languages</h6>
-                <!-- Puedes agregar aquí los idiomas si es necesario -->
-            </div>
         </section>
-        <section class="col-span-2 w-full">
+
+        <!-- Skills Section -->
+        <section class="col-span-2">
             <h4>Skills</h4>
-            <ul class="skills-list flex gap-4">
-                {techs.map((tech) => (
-                    <li>
-                        {tech.img && <Image src={tech.img} alt={`${tech.name} logo`} loading={"eager"} title={tech.name}/>} 
-                    </li>
-                ))}
-            </ul>
+            <div class="skills-list-container">
+                <ul class="skills-list">
+                    {techs.map((tech) => (
+                        <li>
+                            {tech.img && <Image src={tech.img} alt={`${tech.name} logo`} loading={"eager"} title={tech.name} />}
+                        </li>
+                    ))}
+                    {/* Duplicar la lista para el efecto de carrusel infinito */}
+                    {techs.map((tech) => (
+                        <li>
+                            {tech.img && <Image src={tech.img} alt={`${tech.name} logo`} loading={"eager"} title={tech.name} />}
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </section>
     </main>
 </Layout>
@@ -56,15 +50,41 @@ const techs = [
         font-weight: bold;
         @apply text-xl;
     }
+
+    .skills-list-container {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+    }
+
     .skills-list {
-        & li {
-            display: flex;
-            align-items: center;
-            width: fit-content;
-            & img {
-                height: 80px;
-                width: fit-content;
-            }
+        display: flex;
+        gap: 20px;
+        width: max-content; /* Para asegurar que los elementos no se colapsen */
+        animation: scroll 20s linear infinite; /* Desplazamiento continuo */
+        animation-play-state: running;
+        &:hover{
+            animation-play-state: paused ;
+        }
+    }
+
+    .skills-list li {
+        display: inline-block;
+    }
+
+    .skills-list img {
+        height: 80px;
+        width: 80px;
+        aspect-ratio: 1/1;
+    }
+
+    /* Animación para hacer scroll continuo */
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%); /* Mueve el carrusel a la mitad */
         }
     }
 </style>

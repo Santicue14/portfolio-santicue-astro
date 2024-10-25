@@ -18,7 +18,7 @@ interface Project {
         <p class="text-lg  mb-6">Here you can see some of my last projects and a preview of them, this could be a video or photo depending on the privacy of the customer.</p>
         <ul class="grid grid-cols-1 gap-4 max-w-full items-center mx-4">
             {
-                proyectos.map((proyecto: Project, index: number) => (  
+                proyectos.map((proyecto, index) => (  
                     <ProjectContainer proyecto={proyecto} index={index}/> 
                 ))
             }

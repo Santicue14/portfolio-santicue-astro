@@ -13,18 +13,16 @@ const { proyecto, index } = Astro.props;
 ---
 
 <div transition:animate="slide" class={`project-container bg-gray-800 rounded-lg p-6 shadow-md mb-6 w-full justify-between flex items-center ${index%2==0?'flex-row':'flex-row-reverse text-end items-end'}`}>
-    <div class="info w-[50%]">
+    <div class="info w-[50%] text-center">
         <h2 class="text-2xl font-bold mb-4">{proyecto.title}</h2>
         <p class="text-base text-gray-400 mb-4">{proyecto.description}</p>
-        
-
-        <ul class={`flex gap-4 mb-4 ${index%2!=0 ? 'justify-end' : ''}`}>
+        <ul class={`flex gap-4 mb-4 justify-center`}>
             {proyecto.technologies.map((techProject: string) => {
                 const techInList = techs.find(tech => techProject.toLowerCase() === tech.name.toLowerCase());
                 return (
-                    <li key={techProject}>
+                    <li>
                         {techInList ? (
-                            <Image src={techInList.img} alt={`${techInList.name} logo`} style="width: 30px; height: 30px;" title={techInList.name} />
+                            <Image src={techInList.img} loading={"eager"} alt={`${techInList.name} logo`} style="width: 30px; height: 30px;" title={techInList.name} />
                         ) : (
                             techProject
                         )}
@@ -32,7 +30,7 @@ const { proyecto, index } = Astro.props;
                 );
             })}
         </ul>
-        <a href={proyecto.link} class="text-blue-400 hover:underline mb-4 inline-block">View Project</a>
+        <!-- <a href={proyecto.link} class="text-blue-400 hover:underline mb-4 inline-block">View Project</a> -->
     </div>
     {proyecto.video ? (
         <div class="video-container mb-4">
@@ -41,11 +39,12 @@ const { proyecto, index } = Astro.props;
                 height="200"
                 src={proyecto.video}
                 frameborder="0"
+                loading="eager"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
                 title={`Video for ${proyecto.title}`}
             ></iframe>
         </div>
-    ):<Image src={proyecto.image} alt={proyecto.title} width={300}/> }
+    ):<Image src={proyecto.image} alt={proyecto.title} width={300} loading={"eager"}/> }
     
 </div>

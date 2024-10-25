@@ -9,22 +9,26 @@ import {techs} from '@components/logos'
 <Layout title="About me | Santicue14">
     <main class="grid grid-flow-row grid-cols-2 text-white mx-12 gap-6">
         <!-- Profile Section -->
-        <section>
-            <h4>Profile</h4>
-            <p>I'm a junior developer who loves front-end and back-end web development equally. I am experienced in using important technologies, and I particularly enjoy working with React.js, a tool I have utilized in many projects. Being passionate about software and having a solid background in computer science, I am constantly excited to expand my knowledge and take on new tasks in the industry. At the moment, I am seeking chances to utilize my skills and enhance my knowledge within the tech industry.</p>
+        <section class=" space-y-2 flex flex-col">
+            <h4 class="text-2xl font-bold underline text-center">Profile</h4>
+            <p class="first-letter:ml-4">I'm a junior developer who loves full-stack web development. I am experienced in using important technologies (as you can see below), and I particularly enjoy working with React, or Astro, I have utilized them in many projects. I am constantly excited to expand my knowledge and take on new tasks in the industry. At the moment, I am looking for a new challenge to utilize my skills and enhance my knowledge within the tech industry.</p>
+            <p class="first-letter:ml-4">The projects I have worked in, the most of them were to improve my skills. In my actual job, I have done only one big project, which is the "Gestión de obras y servicios", which you can see in my <a href="/works" title="Works Section" class="underline">Works section</a>.</p>
+            
         </section>
-
+        
         <!-- Studies Section -->
-        <section>
-            <h4>Studies</h4>
+        <section class=" flex flex-col row-span-2 overflow-hidden overflow-y-auto">
+            <h4 class="text-2xl font-bold underline text-center">Experience</h4>
             <div class="university">
-                <h6>University</h6>
-                <p>I'm currently in my 2nd year at the National University of José C. Paz (Argentina), pursuing a Bachelor's Degree in Information Technology Management. In addition to my self-taught nature, this career provides me a solid reinforcement in software development and other technologies (IoT, Operating Systems, History of tech...). The practical projects at the university complement my independent learning, giving me the tools and knowledge that I apply directly to my growth as a developer.</p>
+                <h6 class="text-xl font-bold underline ">University</h6>
+                <p class="first-letter:ml-4">I'm currently in my 2nd year at the National University of José C. Paz (Argentina), pursuing a Bachelor's Degree in Information Technology Management. This career provides me a solid reinforcement in software development and other technologies (IoT, Operating Systems, History of tech...). The practical tasks at the university complement my independent learning, giving me the tools and knowledge that I apply directly to my growth as a developer.</p>
+                <h6 class="text-xl font-bold underline ">Languages</h6>
+                <p class="first-letter:ml-4">Besides, I have a solid English level. I have grown up in Argentina, the country where I was born. However, I've been studying this Language since I was 12. I have B2 level certificate.</p>
             </div>
         </section>
 
         <!-- Skills Section -->
-        <section class="col-span-2">
+        <section class="">
             <h4>Skills</h4>
             <div class="skills-list-container">
                 <ul class="skills-list">
@@ -46,10 +50,6 @@ import {techs} from '@components/logos'
 </Layout>
 
 <style>
-    section h4 {
-        font-weight: bold;
-        @apply text-xl;
-    }
 
     .skills-list-container {
         overflow: hidden;

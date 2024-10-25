@@ -13,13 +13,13 @@ interface Project {
 ---
 
 <Layout title="Works | Santicue14">
-    <section class="text-white mx-12">
+    <section class="text-white mx-12 text-center md:text-start ">
         <h1 class="text-3xl font-bold mb-6">My works and projects</h1>
         <p class="text-lg  mb-6">Here you can see some of my last projects and a preview of them, this could be a video or photo depending on the privacy of the customer.</p>
         <ul class="grid grid-cols-1 gap-4 max-w-full items-center mx-4">
             {
-                proyectos.map((proyecto: Project, index: number) => (  // Asegúrate de que cada elemento es un proyecto
-                    <ProjectContainer proyecto={proyecto} index={index}/>  // Aquí pasas el proyecto directamente
+                proyectos.map((proyecto: Project, index: number) => (  
+                    <ProjectContainer proyecto={proyecto} index={index}/> 
                 ))
             }
         </ul>

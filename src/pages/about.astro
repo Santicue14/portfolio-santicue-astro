@@ -7,7 +7,7 @@ import {techs} from '@components/logos'
 ---
 
 <Layout title="About me | Santicue14">
-    <main class="grid grid-flow-row grid-cols-2 text-white mx-12 gap-6">
+    <main class="grid grid-flow-row grid-cols-1 sm:grid-cols-2 text-white mx-12 gap-6">
         <!-- Profile Section -->
         <section class=" space-y-2 flex flex-col">
             <h4 class="text-2xl font-bold underline text-center">Profile</h4>
@@ -23,13 +23,13 @@ import {techs} from '@components/logos'
                 <h6 class="text-xl font-bold underline ">University</h6>
                 <p class="first-letter:ml-4">I'm currently in my 2nd year at the National University of José C. Paz (Argentina), pursuing a Bachelor's Degree in Information Technology Management. This career provides me a solid reinforcement in software development and other technologies (IoT, Operating Systems, History of tech...). The practical tasks at the university complement my independent learning, giving me the tools and knowledge that I apply directly to my growth as a developer.</p>
                 <h6 class="text-xl font-bold underline ">Languages</h6>
-                <p class="first-letter:ml-4">Besides, I have a solid English level. I have grown up in Argentina, the country where I was born. However, I've been studying this Language since I was 12. I have B2 level certificate.</p>
+                <p class="first-letter:ml-4">I have grown up in Argentina, so I speak native spanish. However, I've been studying English since I was 12. I have B2 level, and that's endorsed by Cambridge Institute from Argentina. Besides, I can speak a bit of Portuguese and Italian</p>
             </div>
         </section>
 
         <!-- Skills Section -->
         <section class="">
-            <h4>Skills</h4>
+            <h4 class="text-2xl font-bold underline text-center">Skills</h4>
             <div class="skills-list-container">
                 <ul class="skills-list">
                     {techs.map((tech) => (

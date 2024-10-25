@@ -12,8 +12,8 @@ interface Project {
 const { proyecto, index } = Astro.props;
 ---
 
-<div transition:animate="slide" class={`project-container bg-gray-800 rounded-lg p-6 shadow-md mb-6 w-full justify-between flex items-center ${index%2==0?'flex-row':'flex-row-reverse text-end items-end'}`}>
-    <div class="info w-[50%] text-center">
+<div transition:animate="slide" class={`project-container bg-gray-800 rounded-lg p-6 shadow-md mb-6 w-full justify-between flex flex-col sm:flex-row items-center ${index%2==0?'flex-row':'flex-row-reverse text-end items-end'}`}>
+    <div class="info sm:w-[50%] text-center">
         <h2 class="text-2xl font-bold mb-4">{proyecto.title}</h2>
         <p class="text-base text-gray-400 mb-4">{proyecto.description}</p>
         <ul class={`flex gap-4 mb-4 justify-center`}>
@@ -22,7 +22,7 @@ const { proyecto, index } = Astro.props;
                 return (
                     <li>
                         {techInList ? (
-                            <Image src={techInList.img} loading={"eager"} alt={`${techInList.name} logo`} style="width: 30px; height: 30px;" title={techInList.name} />
+                            <Image src={techInList.img} loading={"lazy"} alt={`${techInList.name} logo`} style="width: 30px; height: 30px;" title={techInList.name} />
                         ) : (
                             techProject
                         )}

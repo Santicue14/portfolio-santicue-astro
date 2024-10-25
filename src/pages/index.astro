@@ -8,9 +8,9 @@ import LinkedinLogo from "@assets/icon-linkedin.svg";
 
 <Layout title="Santicue14 | Web Developer">
 	<main
-		class="text-white flex justify-between px-64 py-28 "
+		class="text-white flex lg:flex-row flex-col-reverse justify-between items-center lg:px-64 lg:py-28 "
 	>
-		<div class="info font-bold items-center  h-full">
+		<div class="info pt-12 font-bold items-center text-center justify-center lg:text-start  h-full">
 			<p>Hi there!</p>
 			<h2 class="text-2xl">
 				I'm <span class="text-cyan-700">Santiago Cuevas</span>
@@ -19,7 +19,7 @@ import LinkedinLogo from "@assets/icon-linkedin.svg";
 			<div class="media flex space-x-12 mt-4">
 				<a href="https://github.com/Santicue14" target="_blank" rel="noopener noreferrer">
 					<div
-						class="container-media bg-cyan-800 hover:bg-cyan-900 px-3"
+						class="container-media bg-cyan-800 hover:saturate-50 transition-colors px-3"
 					>
 						<Image src={GitHubLogo} alt={"Logo github"} loading={"eager"}/>
 						GitHub
@@ -27,7 +27,7 @@ import LinkedinLogo from "@assets/icon-linkedin.svg";
 				</a>
 				<a href="https://www.linkedin.com/in/santiagocuevas147/" target="_blank" rel="noopener noreferrer">
 					<div
-						class="container-media bg-cyan-500 hover:bg-cyan-700 px-3"
+						class="container-media bg-cyan-500 hover:saturate-50 transition-colors px-3"
 					>
 						<Image src={LinkedinLogo} alt={"Logo github"} loading={"eager"}/>
 						Linkedin
